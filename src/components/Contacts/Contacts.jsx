@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { DeleteButton } from "./Contacts.styled";
 import { contactsSelector } from "redux/selectors/contactsSelector";
 import { filterSelector } from "redux/selectors/filterSelector";
-import { deleteContact } from "redux/slices/contactSlice";
+import { deleteContact } from "redux/operations/deleteContact";
+
 
 
 
@@ -22,10 +23,10 @@ const Contacts = () => {
   return (
     <div>
       <ul>
-        {filteredContacts.map(({ id, name, number }) => {
+        {filteredContacts.map(({ id, name, phone }) => {
           return (
             <li key={id}>
-              {name} : {number}
+              {name} : {phone}
               <DeleteButton type="button" onClick={()=>(removeContact(id))}>Delete Contact</DeleteButton>
             </li>
           );

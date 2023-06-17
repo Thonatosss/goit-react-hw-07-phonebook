@@ -5,20 +5,20 @@ import { object, string } from 'yup';
 import { FormLabel, FilterButton, FormInput } from './Form.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { contactsSelector } from 'redux/selectors/contactsSelector';
-import {addContact} from 'redux/slices/contactSlice';
+import {addContact} from 'redux/operations/addContact';
 
 
 
 const initialValues = {
   name: '',
-  number: '',
+  phone: '',
 };
 const schema = object({
   name: string()
     .min(2, 'Name must be at least 2 characters!')
     .max(25, 'Name must be at most 25 characters!')
     .required('Required!'),
-  number: string()
+  phone: string()
     .min(7, 'Number must be at least 7 digits')
     .max(7, 'Number must be at most 7 digits')
     .required('Required!'),
@@ -59,7 +59,7 @@ function UserForm() {
 
         <FormLabel>
           Number
-          <FormInput type="tel" name="number" required />
+          <FormInput type="tel" name="phone" required />
           <ErrorMessage name="number" component="div"></ErrorMessage>
           <FilterButton type="submit">Add contact</FilterButton>
         </FormLabel>
