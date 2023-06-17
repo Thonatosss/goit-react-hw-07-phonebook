@@ -5,9 +5,7 @@ import { object, string } from 'yup';
 import { FormLabel, FilterButton, FormInput } from './Form.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { contactsSelector } from 'redux/selectors/contactsSelector';
-import {addContact} from 'redux/operations/addContact';
-
-
+import { addContact } from 'redux/operations/addContact';
 
 const initialValues = {
   name: '',
@@ -23,7 +21,6 @@ const schema = object({
     .max(7, 'Number must be at most 7 digits')
     .required('Required!'),
 });
-
 
 function UserForm() {
   const contacts = useSelector(contactsSelector);
@@ -60,7 +57,7 @@ function UserForm() {
         <FormLabel>
           Number
           <FormInput type="tel" name="phone" required />
-          <ErrorMessage name="number" component="div"></ErrorMessage>
+          <ErrorMessage name="phone" component="div"></ErrorMessage>
           <FilterButton type="submit">Add contact</FilterButton>
         </FormLabel>
       </Form>
