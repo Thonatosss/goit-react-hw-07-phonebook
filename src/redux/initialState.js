@@ -6,7 +6,3 @@ export const initialState = {
     },
     filter: ""
 }
-const OldinitialState = {
-    contacts: [],
-    filter: ""
-}
