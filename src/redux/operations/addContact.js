@@ -5,7 +5,7 @@ import { BASE_URL } from "constants";
 
 
 export const addContact = createAsyncThunk(
-    "ontacts/addContact",
+    "contacts/addContact",
     async (data, thunkAPI) => {
         try {
             const response = await axios.post(`${BASE_URL}contacts`, {
